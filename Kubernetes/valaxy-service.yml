@@ -9,6 +9,6 @@ spec:
     app: valaxy-devops-project
   type: LoadBalancer
   ports:
-    - port: 8080
-      targetPort: 8080
-      nodePort: 31200
+    - port: 8080      # loadbalancer port
+      targetPort: 8080    # node port or the connection to a new service using its listening port
+      nodePort: 31200 #node port
