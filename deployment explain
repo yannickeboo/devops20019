@@ -9,7 +9,24 @@ spec:
   selector:
     matchLabels:
       environment: test
-  minReadySeconds:
+  minReadySeconds: 10
+  strategy:
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 0
+    type: RollingUpdate
+  template:
+    metadata:
+      labels:
+        environment: test
+    spec:
+    containers: 
+      - name: valaxy-devops-project
+        image: yannickeboo/lecours
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 8080
+      
   
   
   pour la suite https://www.youtube.com/watch?v=y_vy9NVeCzo
